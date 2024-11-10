@@ -5,7 +5,7 @@ from PIL import Image
 # 定义一个函数来压缩图像
 def resize_image(input_path, output_path, size=(256, 128)):
     with Image.open(input_path) as img:
-        resized_img = img.resize(size, Image.LANCZOS)
+        resized_img = img.resize(size, Image.NEAREST)
         resized_img.save(output_path)
 
 # 数据集路径
