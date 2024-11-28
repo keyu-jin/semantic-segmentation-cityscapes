@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 from torch import optim
-from model import UNet, UNet_ASPP,UNetPlusPlus, DeepLabV3Plus,SegNet,WSegNet,WSegNetplus
+from model import UNet, UNet_ASPP,UNetPlusPlus, DeepLabV3Plus,SegNet,WSegNet,WSegNetplus,UNetPlusPlus
 from visualize_dataset import load_dataset
 from test import calculate_accuracy, calculate_iou, calculate_confusion_matrix
 import numpy as np
@@ -39,6 +39,11 @@ def train_model(model, criterion, optimizer, train_loader, val_loader, num_epoch
     val_acc_list = []
     val_iou_list = []
 
+    train_acc_list = []
+    train_iou_list = []
+    val_acc_list = []
+    val_iou_list = []
+
     for epoch in range(num_epochs):  # loop over the dataset multiple times
         model.train()
         running_loss = 0.0
@@ -48,6 +53,12 @@ def train_model(model, criterion, optimizer, train_loader, val_loader, num_epoch
         total_union = 0
         
         epoch_begin_time = time.time()
+        total_correct = 0
+        total_pixels = 0
+        total_iou = 0
+        total_intersection = 0
+        total_union = 0
+
         for i, data in enumerate(train_loader, 0):
             # get the inputs; data is a list of [inputs, labels]
             inputs, musk = data[0].to(device), data[1].to(device)
