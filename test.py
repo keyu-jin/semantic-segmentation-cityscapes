@@ -28,17 +28,8 @@ def calculate_confusion_matrix(predicted, labels, num_classes,confusion_matrix):
     """计算混淆矩阵"""
     # 遍历每个类别
     for cls in range(num_classes):
-        # 预测为cls的像素点
-        pred_inds = (predicted == cls).view(-1)
-        # 真实为cls的像素点
-        true_inds = (labels == cls).view(-1)
-        # 真实为cls且预测也为cls的像素点
-        confusion_matrix[cls, cls] += (pred_inds & true_inds).sum().item()
-        # 预测为cls但实际不是cls的像素点
-        confusion_matrix[cls, :] += (pred_inds).sum().item()
-        # 真实为cls但预测不是cls的像素点
-        confusion_matrix[:, cls] += (true_inds).sum().item()
-    
+        for cloumn in range(num_classes):
+            confusion_matrix[cls,cloumn] += ((labels == cls).view(-1) & (predicted == cloumn).view(-1)).sum().item()
     
     return confusion_matrix
 
@@ -79,9 +70,7 @@ def test_model(model,val_loader,device):
                 outputs = model(img)
             _,predicted = torch.max(outputs,1)
             
-            correct, pixels = calculate_accuracy(predicted, labels)
-            total_correct += correct
-            total_pixels += pixels
+            total_correct, total_pixels = calculate_accuracy(predicted, labels)
             intersection, union = calculate_iou(predicted, labels, outputs.shape[1])
             total_intersection += intersection
             total_union += union
