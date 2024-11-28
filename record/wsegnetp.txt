@@ -1,0 +1,88 @@
+
+
+Epoch [1/20], Average Loss: 0.995, Train Acc: 0.787, Train IoU: 0.575,Validation Acc: 0.809, Validation IoU: 0.623
+Epoch [2/20], Average Loss: 0.692, Train Acc: 0.822, Train IoU: 0.666,Validation Acc: 0.772, Validation IoU: 0.589
+Epoch [3/20], Average Loss: 0.614, Train Acc: 0.819, Train IoU: 0.696,Validation Acc: 0.859, Validation IoU: 0.659
+Epoch [4/20], Average Loss: 0.561, Train Acc: 0.876, Train IoU: 0.716,Validation Acc: 0.846, Validation IoU: 0.661
+
+
+Epoch [1/20], Average Loss: 0.934, Train Acc: 0.808, Train IoU: 0.596,Validation Acc: 0.817, Validation IoU: 0.638
+Epoch [2/20], Average Loss: 0.641, Train Acc: 0.838, Train IoU: 0.686,Validation Acc: 0.869, Validation IoU: 0.687
+Epoch [3/20], Average Loss: 0.563, Train Acc: 0.810, Train IoU: 0.715,Validation Acc: 0.830, Validation IoU: 0.603
+
+Epoch [1/20], Average Loss: 0.974, Train Acc: 0.812, Train IoU: 0.579,Validation Acc: 0.764, Validation IoU: 0.598
+Epoch [2/20], Average Loss: 0.675, Train Acc: 0.802, Train IoU: 0.673,Validation Acc: 0.872, Validation IoU: 0.635
+Epoch [3/20], Average Loss: 0.597, Train Acc: 0.797, Train IoU: 0.702,Validation Acc: 0.848, Validation IoU: 0.653
+Epoch [4/20], Average Loss: 0.543, Train Acc: 0.839, Train IoU: 0.723,Validation Acc: 0.839, Validation IoU: 0.683
+
+Epoch [1/20], Average Loss: 1.005, Train Acc: 0.704, Train IoU: 0.567,Validation Acc: 0.772, Validation IoU: 0.592
+Epoch [2/20], Average Loss: 0.696, Train Acc: 0.822, Train IoU: 0.664,Validation Acc: 0.797, Validation IoU: 0.622
+Epoch [3/20], Average Loss: 0.614, Train Acc: 0.822, Train IoU: 0.694,Validation Acc: 0.849, Validation IoU: 0.666
+Epoch [4/20], Average Loss: 0.565, Train Acc: 0.852, Train IoU: 0.714,Validation Acc: 0.872, Validation IoU: 0.710
+Epoch [5/20], Average Loss: 0.529, Train Acc: 0.854, Train IoU: 0.727,Validation Acc: 0.871, Validation IoU: 0.701
+Epoch [6/20], Average Loss: 0.460, Train Acc: 0.894, Train IoU: 0.754,Validation Acc: 0.893, Validation IoU: 0.725
+Epoch [7/20], Average Loss: 0.437, Train Acc: 0.857, Train IoU: 0.763,Validation Acc: 0.895, Validation IoU: 0.739
+Epoch [8/20], Average Loss: 0.425, Train Acc: 0.884, Train IoU: 0.767,Validation Acc: 0.895, Validation IoU: 0.738
+Epoch [9/20], Average Loss: 0.410, Train Acc: 0.841, Train IoU: 0.773,Validation Acc: 0.900, Validation IoU: 0.728
+Epoch [10/20], Average Loss: 0.395, Train Acc: 0.822, Train IoU: 0.780,Validation Acc: 0.906, Validation IoU: 0.733
+Epoch [11/20], Average Loss: 0.358, Train Acc: 0.892, Train IoU: 0.797,Validation Acc: 0.898, Validation IoU: 0.746
+Epoch [12/20], Average Loss: 0.343, Train Acc: 0.899, Train IoU: 0.806,Validation Acc: 0.907, Validation IoU: 0.752
+Epoch [13/20], Average Loss: 0.332, Train Acc: 0.899, Train IoU: 0.811,Validation Acc: 0.907, Validation IoU: 0.750
+Epoch [14/20], Average Loss: 0.326, Train Acc: 0.900, Train IoU: 0.814,Validation Acc: 0.909, Validation IoU: 0.749
+Epoch [15/20], Average Loss: 0.317, Train Acc: 0.907, Train IoU: 0.818,Validation Acc: 0.903, Validation IoU: 0.749
+Epoch [16/20], Average Loss: 0.300, Train Acc: 0.908, Train IoU: 0.828,Validation Acc: 0.914, Validation IoU: 0.755
+Epoch [17/20], Average Loss: 0.293, Train Acc: 0.920, Train IoU: 0.831,Validation Acc: 0.916, Validation IoU: 0.752
+Epoch [18/20], Average Loss: 0.290, Train Acc: 0.876, Train IoU: 0.833,Validation Acc: 0.912, Validation IoU: 0.751
+Epoch [19/20], Average Loss: 0.285, Train Acc: 0.929, Train IoU: 0.835,Validation Acc: 0.914, Validation IoU: 0.753
+Epoch [20/20], Average Loss: 0.280, Train Acc: 0.911, Train IoU: 0.838,Validation Acc: 0.911, Validation IoU: 0.752
+
+
+
+Epoch [1/20], Average Loss: 0.990, Train Acc: 0.786, Train IoU: 0.577,Validation Acc: 0.800, Validation IoU: 0.610
+Epoch [2/20], Average Loss: 0.694, Train Acc: 0.824, Train IoU: 0.665,Validation Acc: 0.866, Validation IoU: 0.679
+Epoch [3/20], Average Loss: 0.607, Train Acc: 0.818, Train IoU: 0.699,Validation Acc: 0.868, Validation IoU: 0.668
+Epoch [4/20], Average Loss: 0.559, Train Acc: 0.874, Train IoU: 0.716,Validation Acc: 0.858, Validation IoU: 0.673
+Epoch [5/20], Average Loss: 0.524, Train Acc: 0.824, Train IoU: 0.729,Validation Acc: 0.875, Validation IoU: 0.713
+Epoch [6/20], Average Loss: 0.454, Train Acc: 0.866, Train IoU: 0.756,Validation Acc: 0.899, Validation IoU: 0.740
+Epoch [7/20], Average Loss: 0.432, Train Acc: 0.828, Train IoU: 0.765,Validation Acc: 0.889, Validation IoU: 0.737
+Epoch [8/20], Average Loss: 0.418, Train Acc: 0.868, Train IoU: 0.770,Validation Acc: 0.878, Validation IoU: 0.729
+Epoch [9/20], Average Loss: 0.401, Train Acc: 0.860, Train IoU: 0.777,Validation Acc: 0.889, Validation IoU: 0.737
+Epoch [10/20], Average Loss: 0.391, Train Acc: 0.888, Train IoU: 0.781,Validation Acc: 0.906, Validation IoU: 0.738
+Epoch [11/20], Average Loss: 0.348, Train Acc: 0.913, Train IoU: 0.802,Validation Acc: 0.907, Validation IoU: 0.743
+Epoch [12/20], Average Loss: 0.334, Train Acc: 0.901, Train IoU: 0.809,Validation Acc: 0.904, Validation IoU: 0.746
+Epoch [13/20], Average Loss: 0.323, Train Acc: 0.913, Train IoU: 0.815,Validation Acc: 0.896, Validation IoU: 0.751
+Epoch [14/20], Average Loss: 0.312, Train Acc: 0.908, Train IoU: 0.820,Validation Acc: 0.898, Validation IoU: 0.743
+Epoch [15/20], Average Loss: 0.298, Train Acc: 0.920, Train IoU: 0.828,Validation Acc: 0.908, Validation IoU: 0.747
+Epoch [16/20], Average Loss: 0.281, Train Acc: 0.896, Train IoU: 0.838,Validation Acc: 0.904, Validation IoU: 0.751
+Epoch [17/20], Average Loss: 0.274, Train Acc: 0.908, Train IoU: 0.841,Validation Acc: 0.915, Validation IoU: 0.749
+Epoch [18/20], Average Loss: 0.270, Train Acc: 0.918, Train IoU: 0.844,Validation Acc: 0.911, Validation IoU: 0.748
+Epoch [19/20], Average Loss: 0.264, Train Acc: 0.913, Train IoU: 0.847,Validation Acc: 0.908, Validation IoU: 0.749
+Epoch [20/20], Average Loss: 0.260, Train Acc: 0.919, Train IoU: 0.849,Validation Acc: 0.911, Validation IoU: 0.746
+
+Epoch [1/20], Average Loss: 1.085, Train Acc: 0.755, Train IoU: 0.572,Validation Acc: 0.814, Validation IoU: 0.609
+Epoch [2/20], Average Loss: 0.709, Train Acc: 0.727, Train IoU: 0.670,Validation Acc: 0.871, Validation IoU: 0.644
+Epoch [3/20], Average Loss: 0.618, Train Acc: 0.869, Train IoU: 0.702,Validation Acc: 0.711, Validation IoU: 0.587
+Epoch [4/20], Average Loss: 0.560, Train Acc: 0.834, Train IoU: 0.722,Validation Acc: 0.859, Validation IoU: 0.691
+Epoch [5/20], Average Loss: 0.515, Train Acc: 0.842, Train IoU: 0.737,Validation Acc: 0.876, Validation IoU: 0.700
+Epoch [6/20], Average Loss: 0.447, Train Acc: 0.899, Train IoU: 0.764,Validation Acc: 0.887, Validation IoU: 0.734
+Epoch [7/20], Average Loss: 0.422, Train Acc: 0.853, Train IoU: 0.774,Validation Acc: 0.892, Validation IoU: 0.721
+Epoch [8/20], Average Loss: 0.402, Train Acc: 0.820, Train IoU: 0.783,Validation Acc: 0.900, Validation IoU: 0.734
+Epoch [9/20], Average Loss: 0.380, Train Acc: 0.899, Train IoU: 0.793,Validation Acc: 0.894, Validation IoU: 0.727
+Epoch [10/20], Average Loss: 0.361, Train Acc: 0.889, Train IoU: 0.801,Validation Acc: 0.902, Validation IoU: 0.733
+Epoch [11/20], Average Loss: 0.321, Train Acc: 0.917, Train IoU: 0.821,Validation Acc: 0.899, Validation IoU: 0.735
+Epoch [12/20], Average Loss: 0.307, Train Acc: 0.922, Train IoU: 0.828,Validation Acc: 0.907, Validation IoU: 0.737
+Epoch [13/20], Average Loss: 0.295, Train Acc: 0.878, Train IoU: 0.834,Validation Acc: 0.904, Validation IoU: 0.743
+Epoch [14/20], Average Loss: 0.287, Train Acc: 0.890, Train IoU: 0.838,Validation Acc: 0.909, Validation IoU: 0.742
+Epoch [15/20], Average Loss: 0.278, Train Acc: 0.895, Train IoU: 0.843,Validation Acc: 0.905, Validation IoU: 0.742
+Epoch [16/20], Average Loss: 0.266, Train Acc: 0.931, Train IoU: 0.850,Validation Acc: 0.906, Validation IoU: 0.740
+Epoch [17/20], Average Loss: 0.262, Train Acc: 0.932, Train IoU: 0.852,Validation Acc: 0.907, Validation IoU: 0.740
+Epoch [18/20], Average Loss: 0.259, Train Acc: 0.920, Train IoU: 0.854,Validation Acc: 0.906, Validation IoU: 0.740
+Epoch [19/20], Average Loss: 0.256, Train Acc: 0.914, Train IoU: 0.855,Validation Acc: 0.906, Validation IoU: 0.741
+Epoch [20/20], Average Loss: 0.252, Train Acc: 0.916, Train IoU: 0.857,Validation Acc: 0.906, Validation IoU: 0.740
+
+Epoch [1/50], Average Loss: 0.407, Train Acc: 0.853, Train IoU: 0.777,Validation Acc: 0.898, Validation IoU: 0.741
+Epoch [2/50], Average Loss: 0.372, Train Acc: 0.881, Train IoU: 0.791,Validation Acc: 0.903, Validation IoU: 0.737
+Epoch [3/50], Average Loss: 0.360, Train Acc: 0.840, Train IoU: 0.797,Validation Acc: 0.884, Validation IoU: 0.738
+Epoch [4/50], Average Loss: 0.340, Train Acc: 0.901, Train IoU: 0.808,Validation Acc: 0.908, Validation IoU: 0.745
+Epoch [5/50], Average Loss: 0.335, Train Acc: 0.879, Train IoU: 0.810,Validation Acc: 0.870, Validation IoU: 0.745
+Epoch [6/50], Average Loss: 0.282, Train Acc: 0.920, Train IoU: 0.839,Validation Acc: 0.901, Validation IoU: 0.760

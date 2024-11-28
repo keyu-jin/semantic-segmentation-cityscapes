@@ -1,15 +1,16 @@
 import torch
+import os
 from torch import nn
 from torch import optim
-from model import UNet, UNet_ASPP,UNetPlusPlus, DeepLabV3Plus,SegNet,WSegNet,WSegNetplus
+from torch.amp import GradScaler, autocast
+from model import UNet, UNet_ASPP,UNetPlusPlus, DeepLabV3Plus
 from visualize_dataset import load_dataset
 from test import calculate_accuracy, calculate_iou, calculate_confusion_matrix
 import numpy as np
 import time
 import json
-import os
-torch.manual_seed(17)
 
+# 定义一个函数来加载超参数
 def load_hyperparameters(json_file_path, model_name):
     # 读取JSON文件
     with open(json_file_path, 'r') as json_file:
@@ -28,9 +29,6 @@ weights = np.array([1, 1, 1, 1])
 weights = weights / np.sum(weights)
 
 def train_model(model, criterion, optimizer, train_loader, val_loader, num_epochs=25, device='cuda', lr_scheduler=None,log_path='./record/model.txt'):
-    with open(log_path,'a') as f:
-            f.write('\n')
-    """训练模型"""
     # 记录开始时间
     start_time = time.time()
     loss_list = []
@@ -39,6 +37,8 @@ def train_model(model, criterion, optimizer, train_loader, val_loader, num_epoch
     val_acc_list = []
     val_iou_list = []
 
+    scaler = GradScaler()
+
     for epoch in range(num_epochs):  # loop over the dataset multiple times
         model.train()
         running_loss = 0.0
@@ -46,41 +46,48 @@ def train_model(model, criterion, optimizer, train_loader, val_loader, num_epoch
         total_pixels = 0
         total_intersection = 0
         total_union = 0
-        
+
         epoch_begin_time = time.time()
         for i, data in enumerate(train_loader, 0):
             # get the inputs; data is a list of [inputs, labels]
-            inputs, musk = data[0].to(device), data[1].to(device)
-            musk = musk.long()
+            inputs, labels = data[0].to(device), data[1].to(device)
+            labels = labels.long()
             # zero the parameter gradients
             optimizer.zero_grad()
-    
+            
             # 正向传播
-            outputs = model(inputs)
-            if model.name == 'unetpp':
-                outputs, ds1, ds2, ds3 = model(inputs)
-                loss = 0
-                loss += weights[0] * criterion(outputs, musk)  # 最后一层的损失
-                loss += weights[1] * criterion(ds1, musk)  # 第一层深度监督的损失
-                loss += weights[2] * criterion(ds2, musk)  # 第二层深度监督的损失
-                loss += weights[3] * criterion(ds3, musk)  # 第三层深度监督的损失
-            else:
-                loss = criterion(outputs, musk)
+            with autocast(device_type=str(device.type)):
+                outputs = model(inputs)
+                if model.name == 'unetpp':
+                    outputs, ds1, ds2, ds3 = model(inputs)
+                    loss = 0
+                    loss += weights[0] * criterion(outputs, labels)  # 最后一层的损失
+                    loss += weights[1] * criterion(ds1, labels)  # 第一层深度监督的损失
+                    loss += weights[2] * criterion(ds2, labels)  # 第二层深度监督的损失
+                    loss += weights[3] * criterion(ds3, labels)  # 第三层深度监督的损失
+                else:
+                    loss = criterion(outputs, labels)
+            
             # 反向传播
-            loss.backward()
-            optimizer.step()
+            scaler.scale(loss).backward()
+            #torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+            scaler.step(optimizer)
+            scaler.update()
+        
             # 累加损失值
             running_loss += loss.item()
+
             # 计算像素准确率和交并比
             _, predicted = torch.max(outputs, 1)
-            total_correct, total_pixels = calculate_accuracy(predicted, musk)
-            intersection, union = calculate_iou(predicted, musk, outputs.shape[1])
+            total_correct, total_pixels = calculate_accuracy(predicted, labels)
+            intersection, union = calculate_iou(predicted, labels, outputs.shape[1])
             total_intersection += intersection
             total_union += union
 
         # 更新学习率
         if lr_scheduler is not None:
-            lr_scheduler.step() 
+            lr_scheduler.step()  
+
         epoch_end_time = time.time()
         # 计算每个epoch的平均损失、像素准确率和交并比
         loss_list.append(running_loss / len(train_loader))
@@ -120,7 +127,7 @@ def train_model(model, criterion, optimizer, train_loader, val_loader, num_epoch
             print(f'\tValidation Acc: {val_acc:.3f}, Validation IoU: {val_iou:.3f}')
             if (val_acc >= np.max(val_acc_list)):  # 保存在验证集上效果最好的模型
                 torch.save(model.state_dict(), f'./{model.name}.pth')
-        
+
         """记录模型训练信息"""
         log_dir = os.path.dirname(log_path)
         if not os.path.exists(log_dir):
@@ -133,16 +140,16 @@ def train_model(model, criterion, optimizer, train_loader, val_loader, num_epoch
     return loss_list, train_acc_list, train_iou_list, val_acc_list, val_iou_list
 
 if __name__ == "__main__":
-    MAX_EPOCHS = 20
+    MAX_EPOCHS = 50
     Batch_size = 8
 
     # 设置设备
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     torch.autograd.set_detect_anomaly(True)
-    model = WSegNetplus(device=device).to(device)
+    model = UNetPlusPlus().to(device)
     model_weights_path = f'./{model.name}.pth'
     log_path = f'./record/{model.name}.txt'
-
+    
     #加载训练超参数
     json_file_path = './hyperparameters.json'
     hyperparams = load_hyperparameters(json_file_path, model.name)
