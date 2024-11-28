@@ -6,7 +6,6 @@ from torch.utils.data import Dataset, DataLoader, random_split
 import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
-import cv2
 
 
 # 自定义数据集CityScapesDataset

@@ -98,12 +98,14 @@ def visualize_results(model, val_loader, device):
             # 将预测和标签转换为numpy数组
             predicted_np = predicted.cpu().numpy()
             musk_np = musk.cpu().numpy()
-            predicted_np = predicted_np[0]
-            musk_np = musk_np[0]
+            picture_index = 7 #0~(batch_size-1)
+            img_display = img[picture_index]
+            predicted_np = predicted_np[picture_index]
+            musk_np = musk_np[picture_index]
 
             # 可视化输入图像
             fig, ax = plt.subplots(1, 4, figsize=(15, 5))
-            ax[0].imshow(img[0,0].cpu().numpy(),cmap='gray')
+            ax[0].imshow(img_display[0].cpu().numpy(),cmap='gray')
             ax[0].set_title('Input Image')
             
             # 可视化真实标签
@@ -131,8 +133,8 @@ if __name__ == "__main__":
     # 设置设备
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     # 加载模型
-    model = DeepLabV3Plus().to(device)
-    model_weights_path = f'./{model.name}.pth' 
+    model = WSegNetplus(device=device).to(device)
+    model_weights_path = f'./{model.name}_2.pth' 
     model.load_state_dict(torch.load(model_weights_path, map_location=device,weights_only=True))
     print(f"Loaded model weights from {model_weights_path}")
     
